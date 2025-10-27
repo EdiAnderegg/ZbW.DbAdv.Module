@@ -10,10 +10,13 @@
       // Northwind-Datenbank: https://github.com/microsoft/sql-server-samples/tree/master/samples/databases/northwind-pubs
 
       // Connectionstring: https://www.connectionstrings.com/sqlconnection/
-      string connStr = @"Data Source=.\DEV;Initial Catalog=Northwind;Integrated Security=True;Encrypt=False";
 
-      //string connStr = "provider=SQLOLEDB; data source=(local)\\NetSDK; " +
-      //	"initial catalog=Northwind; user id=sa; password=; ";
+      /* Connection string for locally installed SQL Server with Windows Authentication */
+      string connStr = @"Data Source=.;Initial Catalog=Northwind;Integrated Security=True;Encrypt=False";
+
+      /* Connection string for SQL Server running in a docker container with SQL Server Authentication */
+      //string connStr = @"Data Source=localhost,14445;Initial Catalog=Northwind;user id=sa; password=G52ndT0ur;;Encrypt=False";
+
       IDbConnection con = null!;       // Verbindung deklarieren
       try
       {
